@@ -1,7 +1,7 @@
 name: vprofile actions
 on: workflow_dispatch
 env:
-  AWS_REGION: us-east-2
+  AWS_REGION: us-east-1
   ECR_REPOSITORY: vprofileapp
   EKS_CLUSTER: vprofile-eks
 
@@ -60,7 +60,7 @@ jobs:
       - name: Code checkout
         uses: actions/checkout@v4
 
-      - name: Build & Upload image to ECR
+      - name: upload image to ECR
         uses: appleboy/docker-ecr-action@master
         with:
           access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
